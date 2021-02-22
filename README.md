@@ -2,7 +2,7 @@
 Repositório criado para gerenciar os projetos e aulas de Linguagens I.
 
 # Desenvolvedor:
-## Lucas Ribeiro Gonçalves
+- Lucas Ribeiro Gonçalves
 
 # Principais Linguagens:
 - Java
