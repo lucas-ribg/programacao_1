@@ -1,0 +1,2 @@
+P1. Onde está instalado o JDK?
+P2. Qual o caminho completo até o Java e o Javac?
