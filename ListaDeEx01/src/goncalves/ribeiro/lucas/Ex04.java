@@ -14,19 +14,17 @@ public class Ex04 {
 
         //transformando a string em um array
         char [] letras = palindromo.toCharArray();
-        System.out.println(letras);
-        int tamanho = letras.length;
+        int tamanho = letras.length; //tamanho da palavra
 
+        //invertendo a palavra
         int i;
-        for (i=0; i<=tamanho; i++){
-            inversao[tamanho-1] = letras[i];
+        for (i=0; i<tamanho; i++){
+            inversao[i] = letras[tamanho-(i+1)];
             i++;
         }
 
-        System.out.println(inversao);
-
-        if (inversao == letras) System.out.println("é palindromo!");
-        else System.out.println("não é palindromo!");
+        if (inversao == letras) System.out.println("\né palindromo!");
+        else System.out.println("\nnão é palindromo!");
         }
 
 
