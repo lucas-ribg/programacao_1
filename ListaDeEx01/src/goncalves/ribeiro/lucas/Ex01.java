@@ -6,12 +6,12 @@ public class Ex01 {
 
     public static void main(String[] args) {
 
-        String nome, email;
-        int RA, telefone, idade;
+        String nome, email, telefone, RA;
+        int idade;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Informe seu RA: ");
-        RA = scanner.nextInt();
+        RA = scanner.nextLine();
 
         System.out.println("Informe seu nome: ");
         nome = scanner.nextLine();
@@ -20,10 +20,10 @@ public class Ex01 {
         email = scanner.nextLine();
 
         System.out.println("Informe seu telefone: ");
-        telefone = scanner.nextInt();
+        telefone = scanner.nextLine();
 
         System.out.println("Informe seu idade: ");
-        idade = scanner.nextInt();
+        idade = Integer.parseInt(scanner.nextLine());
 
         System.out.println("RA: " + RA + "\n"+ "Nome: " + nome + "\n" + "email: " + email + "\n" + "telefone: " + telefone + "\n" + "idade: " + idade);
 

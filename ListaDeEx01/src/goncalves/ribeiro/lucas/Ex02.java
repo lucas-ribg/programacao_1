@@ -12,14 +12,13 @@ public class Ex02 {
 
         System.out.println("Insira o primeiro nome: ");
         nome1 = scanner.nextLine();
-        scanner.nextLine(); //limpa o buffer
         System.out.println("Insira a idade: ");
-        idade1 = scanner.nextInt();
+        idade1 = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Insira o segundo nome: ");
         nome2 = scanner.nextLine();
         System.out.println("Insira a idade: ");
-        idade2 = scanner.nextInt();
+        idade2 = Integer.parseInt(scanner.nextLine());
 
         diferenca = diferencaDeIdade(idade1, idade2);
 
