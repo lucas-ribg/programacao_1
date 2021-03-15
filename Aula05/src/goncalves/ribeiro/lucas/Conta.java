@@ -46,6 +46,8 @@ public class Conta {
         return "Conta{" +
                 "cliente=" + cliente.toString() +
                 ", saldo" + saldo +
+                ", numero=" + numero +
+                "}";
 
     }
 }
