@@ -9,7 +9,7 @@ public class Main {
         Scanner scanner;
         String usuario;
         int valor;
-        String QRcode;
+        String QRCode;
         Scanner scanner;
 
         System.out.println("1. Pagar");
@@ -26,7 +26,7 @@ public class Main {
             valor = scanner.nextInt();
 
             System.out.println("Informe o QRCode: ");
-            QRcode = scanner.nextLine();
+            QRCode = scanner.nextLine();
 
         }
         if (op == 2){
