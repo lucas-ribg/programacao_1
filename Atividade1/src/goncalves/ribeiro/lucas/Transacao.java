@@ -23,14 +23,14 @@ public class Transacao {
     }
 
 
-    public static void pagamento(String pagador, String recebedor, int valor,String QRCode){
+    public static void pagamento(String pagador, String recebedor, double valor,String QRCode){
 
     }
+
     //gera QRCode
-    public void gerarChave() {
-        System.out.println("Digite o valor da requisição: ");
-        int valor = scanner.nextInt();
-        System.out.println();
+    public void gerarChave(String idConta, String usuario, double valor2) {
+        String QRCode = idConta + ";" + usuario + ";" + valor2 + ";" + getRandomNumberInRange(1000, 9999);
+        System.out.println(QRCode);
     }
 
     public Transacao(Scanner scanner) {
@@ -43,3 +43,5 @@ public class Transacao {
 onde índice é um número inteiro que representa a informação
 desejada.
 */
+
+//terminar o gerar chave

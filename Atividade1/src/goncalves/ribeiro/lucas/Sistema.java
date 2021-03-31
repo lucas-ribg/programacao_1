@@ -31,16 +31,24 @@ public class Sistema {
                 String recebedor = scanner.nextLine();
 
                 System.out.println("Informe o valor:");
-                int valor = scanner.nextInt();
+                double valor1 = scanner.nextInt();
 
                 System.out.println("Informe o QRCode: ");
                 String QRCode = scanner.nextLine();
                 //realiza o pagamento
-                this.transacao.pagamento(pagador, recebedor, valor, QRCode);
+                this.transacao.pagamento(pagador, recebedor, valor1, QRCode);
                 break;
             case 2:
+                System.out.println("Informe o ID:");
+                String idConta = scanner.nextLine();
+
+                System.out.println("Informe seu usuario:");
+                String usuario = scanner.nextLine();
+
+                System.out.println("Informe o valor:");
+                double valor2 = scanner.nextInt();
                 //gera o QRCode
-                this.transacao.gerarChave();
+                this.transacao.gerarChave(idConta, usuario, valor2);
                 break;
             case 0:
                 System.out.println("Obrigado pela preferência");
