@@ -32,7 +32,11 @@ public class Sistema {
                 break;
             case 2:
                 gerarChave();
-
+                break;
+            case 0:
+                System.out.println("Obrigado pela preferência");
+                this.executarSistema = false;
+                break;
         }
     }
 
@@ -40,6 +44,7 @@ public class Sistema {
         System.out.println("Qual operação deseja realizar?");
         System.out.println("1. Pagar");
         System.out.println("2. Receber");
+        System.out.println("0. Encerrar");
     }
 
 
@@ -48,7 +53,6 @@ public class Sistema {
     public Sistema(){
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
-
-
+        this.conta = new Conta("conta1", 1000 , "joaozinho");
     }
 }
