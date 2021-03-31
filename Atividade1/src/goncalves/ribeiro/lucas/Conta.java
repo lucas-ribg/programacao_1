@@ -1,18 +1,19 @@
 package goncalves.ribeiro.lucas;
 
 public class Conta {
+    //Atributos
     private String idConta;
     private double saldo;
     private Usuario usuario;
 
-    public Conta(String idConta, double saldo, String usuario) {
+    //construtor
+    public Conta(String idConta, double saldo, String nome) {
         this.idConta = idConta;
         this.saldo = saldo;
-        this.usuario = new Usuario("Joao");
-        this.usuario = new Usuario("Catarina");
-        this.usuario = new Usuario("Marcio");
+        this.usuario = new Usuario(nome);
     }
 
+    //retorna o saldo
     public double getSaldo() {
         return saldo;
     }

@@ -1,6 +1,7 @@
 package goncalves.ribeiro.lucas;
 
 public class Usuario {
+    //Atributos
     private String nome;
     private String senha;
     private String email;

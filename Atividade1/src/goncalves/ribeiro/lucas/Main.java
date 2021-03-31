@@ -1,16 +1,13 @@
 package goncalves.ribeiro.lucas;
 
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-
+        //inicializa o programa
         public static void main(String[] args) {
 
             Sistema sistema = new Sistema();
             sistema.executar();
         }
     }
-
 }
