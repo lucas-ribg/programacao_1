@@ -53,6 +53,8 @@ public class Sistema {
     public Sistema(){
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
-        this.conta = new Conta("conta1", 1000 , "joaozinho");
+        this.conta = new Conta("c1", 1000.00 , "Joao");
+        this.conta = new Conta("c2", 250.00 , "Catarina");
+        this.conta = new Conta("c3", 3000.00 , "Marcio");
     }
 }

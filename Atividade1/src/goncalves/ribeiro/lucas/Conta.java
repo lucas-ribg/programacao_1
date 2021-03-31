@@ -5,12 +5,12 @@ public class Conta {
     private double saldo;
     private Usuario usuario;
 
-    public Conta(String idConta, int saldo, Usuario usuario) {
+    public Conta(String idConta, double saldo, String usuario) {
         this.idConta = idConta;
         this.saldo = saldo;
-        this.usuario = new Usuario("Joao", "joao123", "13559212817");
-        this.usuario = new Usuario("Marcio", "marcio123", "12559212817");
-        this.usuario = new Usuario("Catarina", "saopaulo123", "11559212817");
+        this.usuario = new Usuario("Joao");
+        this.usuario = new Usuario("Catarina");
+        this.usuario = new Usuario("Marcio");
     }
 
     public double getSaldo() {

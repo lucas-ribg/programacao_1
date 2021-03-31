@@ -7,10 +7,8 @@ public class Usuario {
     private String CPF;
 
     //construtor
-    public Usuario(String nome, String senha, String CPF) {
+    public Usuario(String nome) {
         this.nome = nome;
-        this.senha = senha;
-        this.CPF = CPF;
     }
 
     @Override
