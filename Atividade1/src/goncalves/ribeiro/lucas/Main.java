@@ -8,7 +8,6 @@ public class Main {
     private static Conta[] conta = new Conta[100];
     private boolean executarSistema;
     private Scanner scanner;
-    //private Conta conta;
     private Transacao transacao;
 
     public static void main(String[] args) {
@@ -59,7 +58,7 @@ public class Main {
                 break;
 
             case 2:
-                System.out.println("Informe o Id da Conta");
+                System.out.println("Informe o Id da Conta:");
                 String idConta = scanner.nextLine();
 
                 System.out.println("Informe seu usuario:");
@@ -93,9 +92,9 @@ public class Main {
     private void exibirInicial(){
         System.out.println("------------------------");
         System.out.println("Estado Inicial:");
-        System.out.println("Usuário: " + conta[0].getUsuario().getNome() + " Saldo: " + conta[0].getSaldo());
-        System.out.println("Usuário: " + conta[1].getUsuario().getNome() + " Saldo: " + conta[1].getSaldo());
-        System.out.println("Usuário: " + conta[2].getUsuario().getNome() + " Saldo: " + conta[2].getSaldo());
+        System.out.println("Usuário: " + conta[0].getUsuario().getNome() + " | Saldo: " + conta[0].getSaldo());
+        System.out.println("Usuário: " + conta[1].getUsuario().getNome() + " | Saldo: " + conta[1].getSaldo());
+        System.out.println("Usuário: " + conta[2].getUsuario().getNome() + " | Saldo: " + conta[2].getSaldo());
         System.out.println("------------------------");
     }
 
@@ -103,9 +102,9 @@ public class Main {
     private void exibirFinal(){
         System.out.println("------------------------");
         System.out.println("Estado Final:");
-        System.out.println("Usuário: " + conta[0].getUsuario().getNome() + " Saldo: " + conta[0].getSaldo());
-        System.out.println("Usuário: " + conta[1].getUsuario().getNome() + " Saldo: " + conta[1].getSaldo());
-        System.out.println("Usuário: " + conta[2].getUsuario().getNome() + " Saldo: " + conta[2].getSaldo());
+        System.out.println("Usuário: " + conta[0].getUsuario().getNome() + " | Saldo: " + conta[0].getSaldo());
+        System.out.println("Usuário: " + conta[1].getUsuario().getNome() + " | Saldo: " + conta[1].getSaldo());
+        System.out.println("Usuário: " + conta[2].getUsuario().getNome() + " | Saldo: " + conta[2].getSaldo());
         System.out.println("------------------------");
     }
     //</editor-fold>
@@ -116,9 +115,6 @@ public class Main {
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
         this.transacao = new Transacao();
-        //conta[0] = new Conta("0", 1000.00, "Lucas");
-        /*conta[1] = new Conta("1", 250.00, "Marcio");
-        conta[2] = new Conta("2", 3000.00, "Catarina");*/
     }
 
     @Override

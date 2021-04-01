@@ -11,6 +11,7 @@ public class Transacao {
         return r.nextInt((max - min) + 1) + min;
     }
 
+    //Realiza o pagamento de uma conta para a outra
     public static void pagamento(Conta pagador, Conta recebedor, String QRCode){
         String[] dados = QRCode.split(";");
         String idConta = dados[0];

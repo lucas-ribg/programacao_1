@@ -12,6 +12,7 @@ public class Conta {
     public void depositar(double valor){
         this.saldo += valor;
     }
+
     //subtrai o valor da conta
     public boolean sacar(double valor){
         if(this.saldo >= valor){
@@ -22,6 +23,7 @@ public class Conta {
         }
         return true;
     }
+
     //acresce o valor em uma conta e subtrai da outra
     public boolean transferir(Conta recebedor, double valor){
         if (this.sacar(valor)){
