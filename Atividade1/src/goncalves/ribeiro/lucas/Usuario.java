@@ -7,6 +7,11 @@ public class Usuario {
     private String email;
     private String CPF;
 
+    //retorna o nome
+    public String getNome() {
+        return nome;
+    }
+
     //construtor
     public Usuario(String nome) {
         this.nome = nome;

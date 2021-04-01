@@ -33,15 +33,25 @@ public class Main {
             case 1:
                 System.out.println("Informe seu nome:");
                 String pagador = scanner.nextLine();
+                if (pagador == conta.getUsuario().getNome()){
+                    pagador = conta.getUsuario().getNome();
+                }
+                Conta contaPagador = conta;
+                System.out.println(contaPagador.getUsuario());
 
                 System.out.println("Informe o nome recebedor:");
                 String recebedor = scanner.nextLine();
+                if (pagador == conta.getUsuario().getNome()){
+                    pagador = conta.getUsuario().getNome();
+                }
+                Conta contaRecebedor = conta;
+                System.out.println(contaRecebedor.getUsuario());
 
                 System.out.println("Informe o QRCode: ");
                 String QRCode = scanner.nextLine();
 
                 //realiza o pagamento
-                this.transacao.pagamento(pagador, recebedor, QRCode);
+                this.transacao.pagamento(contaPagador, contaRecebedor, QRCode);
                 break;
             case 2:
                 System.out.println("Informe o Id da Conta");
@@ -57,6 +67,7 @@ public class Main {
                 break;
             case 0:
                 System.out.println("Agradecemos a preferência!");
+                System.out.println(conta.getUsuario());
                 this.executarSistema = false;
                 break;
         }

@@ -7,21 +7,22 @@ public class Conta {
     private Usuario usuario;
 
     //Métodos
+
     //acresce o valor na conta
-    public void depositar(double valor, Conta conta){
-        conta.saldo += valor;
+    public void depositar(double valor){
+        this.saldo += valor;
     }
     //subtrai o valor da conta
-    public boolean sacar(double valor, Conta conta){
-        if(conta.saldo >= valor){
-            conta.saldo -= valor;
+    public boolean sacar(double valor){
+        if(this.saldo >= valor){
+            this.saldo -= valor;
         }
         return true;
     }
-    //acresce o valor de uma conta e subtrai da outra
-    public boolean transferir(Conta pagador, Conta recebedor, double valor){
-        if (sacar(valor, pagador)){
-            depositar(valor, recebedor);
+    //acresce o valor em uma conta e subtrai da outra
+    public boolean transferir(Conta recebedor, double valor){
+        if (this.sacar(valor)){
+            recebedor.depositar(valor);
         }
         return true;
     }
@@ -37,6 +38,14 @@ public class Conta {
     //retorna o saldo
     public double getSaldo() {
         return saldo;
+    }
+    //retorna o usuario
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    //retorna o idConta
+    public String getIdConta() {
+        return idConta;
     }
 
     @Override
