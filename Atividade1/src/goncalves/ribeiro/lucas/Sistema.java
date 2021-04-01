@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Sistema {
     //Atributos
-
     private boolean executarSistema;
     private Scanner scanner;
     private Conta conta;
@@ -27,19 +26,13 @@ public class Sistema {
                 System.out.println("Informe seu usuario");
                 String pagador = scanner.nextLine();
 
-                System.out.println("Informe o usuario do destinatário:");
-                String recebedor = scanner.nextLine();
-
-                System.out.println("Informe o valor:");
-                double valor1 = scanner.nextInt();
-
                 System.out.println("Informe o QRCode: ");
                 String QRCode = scanner.nextLine();
                 //realiza o pagamento
-                this.transacao.pagamento(pagador, recebedor, valor1, QRCode);
+                this.transacao.pagamento(pagador, QRCode);
                 break;
             case 2:
-                System.out.println("Informe o ID:");
+                System.out.println("Informe o Id da Conta");
                 String idConta = scanner.nextLine();
 
                 System.out.println("Informe seu usuario:");
@@ -51,7 +44,7 @@ public class Sistema {
                 this.transacao.gerarChave(idConta, usuario, valor2);
                 break;
             case 0:
-                System.out.println("Obrigado pela preferência");
+                System.out.println("Agradecemos a preferência!");
                 this.executarSistema = false;
                 break;
         }
