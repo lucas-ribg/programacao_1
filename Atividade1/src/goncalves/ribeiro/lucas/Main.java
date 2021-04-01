@@ -3,16 +3,18 @@ package goncalves.ribeiro.lucas;
 import java.util.Scanner;
 
 public class Main {
+
     //Atributos
+    private static Conta[] conta = new Conta[100];
     private boolean executarSistema;
     private Scanner scanner;
-    private Conta conta;
+    //private Conta conta;
     private Transacao transacao;
 
     public static void main(String[] args) {
         Main main = new Main();
-        Conta conta2 = new Conta("c2", 250.00, "Marcio");
-        Conta conta3 = new Conta("c3", 3000.00, "Catarina");
+        conta[1] = new Conta("1", 250.00, "Marcio");
+        conta[2] = new Conta("2", 3000.00, "Catarina");
         main.executar();
 
     }
@@ -31,24 +33,25 @@ public class Main {
     private void avaliarOpcao(int op) {
         switch (op){
             case 1:
+                int i = 0;
                 System.out.println("Informe seu nome:");
                 String pagador = scanner.nextLine();
-                if (pagador == conta.getUsuario().getNome()){
-                    pagador = conta.getUsuario().getNome();
-                }
-                Conta contaPagador = conta;
-                System.out.println(contaPagador.getUsuario());
+                while (pagador != conta[i].getUsuario().getNome()){ i++; }  //relaciona o usuario a conta correspondente
+                Conta contaPagador = conta[i];
+                i = 0;
 
+                int j = 0;
                 System.out.println("Informe o nome recebedor:");
                 String recebedor = scanner.nextLine();
-                if (pagador == conta.getUsuario().getNome()){
-                    pagador = conta.getUsuario().getNome();
-                }
-                Conta contaRecebedor = conta;
-                System.out.println(contaRecebedor.getUsuario());
+                while (recebedor != conta[j].getUsuario().getNome()){ j++;} //relaciona o usuario a conta correspondente
+                Conta contaRecebedor = conta[j];
+                j = 0;
 
                 System.out.println("Informe o QRCode: ");
                 String QRCode = scanner.nextLine();
+
+                /*System.out.println(contaPagador);
+                System.out.println(contaRecebedor);*/
 
                 //realiza o pagamento
                 this.transacao.pagamento(contaPagador, contaRecebedor, QRCode);
@@ -67,7 +70,6 @@ public class Main {
                 break;
             case 0:
                 System.out.println("Agradecemos a preferência!");
-                System.out.println(conta.getUsuario());
                 this.executarSistema = false;
                 break;
         }
@@ -85,7 +87,8 @@ public class Main {
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
         this.transacao = new Transacao();
-        this.conta = new Conta("c1", 1000.00, "Lucas");
+
+        this.conta[0] = new Conta("0", 1000.00, "Lucas");
     }
 
     @Override
