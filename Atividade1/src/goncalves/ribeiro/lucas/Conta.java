@@ -16,6 +16,9 @@ public class Conta {
     public boolean sacar(double valor){
         if(this.saldo >= valor){
             this.saldo -= valor;
+        }else{
+            System.out.println("Erro!");
+            System.out.println("Saldo Insuficiente");
         }
         return true;
     }
@@ -35,6 +38,7 @@ public class Conta {
         this.usuario = new Usuario(nome);
     }
 
+    //<editor-fold desc="getters">
     //retorna o saldo
     public double getSaldo() {
         return saldo;
@@ -47,6 +51,7 @@ public class Conta {
     public String getIdConta() {
         return idConta;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {
