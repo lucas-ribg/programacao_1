@@ -7,10 +7,14 @@ public class Main {
     private boolean executarSistema;
     private Scanner scanner;
     private Conta conta;
+    private Conta conta2;
     private Transacao transacao;
 
     public static void main(String[] args) {
-        Main main = new Main();
+        Main main = new Main("c1", 1000.00, "Marcio",
+                                "c2", 250.00, "Joao",
+                                "c3", 3000.00, "Catarina");
+        
         main.executar();
 
     }
@@ -29,13 +33,17 @@ public class Main {
     private void avaliarOpcao(int op) {
         switch (op){
             case 1:
-                System.out.println("Informe seu usuario");
+                System.out.println("Informe seu nome:");
                 String pagador = scanner.nextLine();
+
+                System.out.println("Informe o nome recebedor:");
+                String recebedor = scanner.nextLine();
 
                 System.out.println("Informe o QRCode: ");
                 String QRCode = scanner.nextLine();
+
                 //realiza o pagamento
-                this.transacao.pagamento(pagador, QRCode);
+                this.transacao.pagamento(pagador, recebedor, QRCode);
                 break;
             case 2:
                 System.out.println("Informe o Id da Conta");
@@ -63,13 +71,25 @@ public class Main {
         System.out.println("0. Encerrar");
     }
     //construtor
-    public Main(){
+    public Main(String idConta, double saldo, String nome,
+                String idConta2, double saldo2, String nome2,
+                String idConta3, double saldo3, String nome3){
+
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
         this.transacao = new Transacao();
-        this.conta = new Conta("c1", 1000.00 , "Joao");
-        this.conta = new Conta("c2", 250.00 , "Catarina");
-        this.conta = new Conta("c3", 3000.00 , "Marcio");
+        this.conta = new Conta(idConta, saldo ,nome);
+        this.conta2 = new Conta(idConta2, saldo2 ,nome2);
+        this.conta3 = new Conta(idConta3, saldo3 ,nome3);
     }
 
+    @Override
+    public String toString() {
+        return "Main{" +
+                "executarSistema=" + executarSistema +
+                ", scanner=" + scanner +
+                ", conta=" + conta +
+                ", transacao=" + transacao +
+                '}';
+    }
 }

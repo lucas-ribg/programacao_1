@@ -6,6 +6,18 @@ public class Conta {
     private double saldo;
     private Usuario usuario;
 
+    //Métodos
+    public void depositar(double valor){
+        this.saldo += valor;
+    }
+    public void sacar(double valor){
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+        }
+    }
+    public void transferir()
+
+
     //construtor
     public Conta(String idConta, double saldo, String nome) {
         this.idConta = idConta;

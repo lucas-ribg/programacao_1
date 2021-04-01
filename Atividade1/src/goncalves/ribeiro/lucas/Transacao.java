@@ -11,11 +11,12 @@ public class Transacao {
         return r.nextInt((max - min) + 1) + min;
     }
 
-    public static void pagamento(String pagador, String QRCode){
+    public static void pagamento(String pagador, String recebedor, String QRCode){
         String[] dados = QRCode.split(";");
         String idConta = dados[0];
         String nome = dados[1];
         int valor = Integer.parseInt(dados[2]);
+        if (recebedor == nome && )
 
 
     }
