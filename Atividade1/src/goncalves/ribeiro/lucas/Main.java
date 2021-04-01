@@ -12,7 +12,7 @@ public class Main {
     private Transacao transacao;
 
     public static void main(String[] args) {
-
+        conta[0] = new Conta("0", 1000.00, "Lucas");
         conta[1] = new Conta("1", 250.00, "Marcio");
         conta[2] = new Conta("2", 3000.00, "Catarina");
         Main main = new Main();
@@ -39,13 +39,13 @@ public class Main {
                 int i = 0;
                 System.out.println("Informe seu nome:");
                 String pagador = scanner.nextLine();
-                while (pagador != conta[i].getUsuario().getNome()){ i++; }  //relaciona o usuario a conta correspondente
+                while (pagador.equals(conta[i].getUsuario().getNome())){ i++; }  //relaciona o usuario a conta correspondente
                 Conta contaPagador = conta[i];
 
                 int j = 0;
                 System.out.println("Informe o nome recebedor:");
                 String recebedor = scanner.nextLine();
-                while (recebedor != conta[j].getUsuario().getNome()){ j++;} //relaciona o usuario a conta correspondente
+                while (recebedor.equals(conta[j].getUsuario().getNome())){ j++;} //relaciona o usuario a conta correspondente
                 Conta contaRecebedor = conta[j];
 
                 System.out.println("Informe o QRCode: ");
@@ -116,7 +116,7 @@ public class Main {
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
         this.transacao = new Transacao();
-        conta[0] = new Conta("0", 1000.00, "Lucas");
+        //conta[0] = new Conta("0", 1000.00, "Lucas");
         /*conta[1] = new Conta("1", 250.00, "Marcio");
         conta[2] = new Conta("2", 3000.00, "Catarina");*/
     }
