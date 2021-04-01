@@ -7,14 +7,12 @@ public class Main {
     private boolean executarSistema;
     private Scanner scanner;
     private Conta conta;
-    private Conta conta2;
     private Transacao transacao;
 
     public static void main(String[] args) {
-        Main main = new Main("c1", 1000.00, "Marcio",
-                                "c2", 250.00, "Joao",
-                                "c3", 3000.00, "Catarina");
-        
+        Main main = new Main();
+        Conta conta2 = new Conta("c2", 250.00, "Marcio");
+        Conta conta3 = new Conta("c3", 3000.00, "Catarina");
         main.executar();
 
     }
@@ -71,16 +69,12 @@ public class Main {
         System.out.println("0. Encerrar");
     }
     //construtor
-    public Main(String idConta, double saldo, String nome,
-                String idConta2, double saldo2, String nome2,
-                String idConta3, double saldo3, String nome3){
+    public Main(){
 
         this.scanner = new Scanner(System.in);
         this.executarSistema = true;
         this.transacao = new Transacao();
-        this.conta = new Conta(idConta, saldo ,nome);
-        this.conta2 = new Conta(idConta2, saldo2 ,nome2);
-        this.conta3 = new Conta(idConta3, saldo3 ,nome3);
+        this.conta = new Conta("c1", 1000.00, "Lucas");
     }
 
     @Override

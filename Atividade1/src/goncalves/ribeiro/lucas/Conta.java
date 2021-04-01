@@ -7,15 +7,24 @@ public class Conta {
     private Usuario usuario;
 
     //Métodos
-    public void depositar(double valor){
-        this.saldo += valor;
+    //acresce o valor na conta
+    public void depositar(double valor, Conta conta){
+        conta.saldo += valor;
     }
-    public void sacar(double valor){
-        if(this.saldo >= valor){
-            this.saldo -= valor;
+    //subtrai o valor da conta
+    public boolean sacar(double valor, Conta conta){
+        if(conta.saldo >= valor){
+            conta.saldo -= valor;
         }
+        return true;
     }
-    public void transferir()
+    //acresce o valor de uma conta e subtrai da outra
+    public boolean transferir(Conta pagador, Conta recebedor, double valor){
+        if (sacar(valor, pagador)){
+            depositar(valor, recebedor);
+        }
+        return true;
+    }
 
 
     //construtor
