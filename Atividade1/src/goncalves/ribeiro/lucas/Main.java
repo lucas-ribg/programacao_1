@@ -52,7 +52,7 @@ public class Main {
 
                 //realiza o pagamento
                 if (this.transacao.pagamento(contaPagador, contaRecebedor, QRCode)){
-                    System.out.println("Transação realizada com sucesso!");
+                    System.out.println("Transação realizada com sucesso!\n");
                 } else {
                     System.out.println("Não foi possível realizar a transação");
                 }

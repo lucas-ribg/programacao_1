@@ -20,8 +20,10 @@ public class Transacao {
         double dValor = Double.parseDouble(valor);
 
         if (recebedor.getUsuario().getNome().equals(nome) && recebedor.getIdConta().equals(idConta)){
-            pagador.transferir(recebedor, dValor);
-            return true;
+            if(pagador.transferir(recebedor, dValor)){
+                return true;
+            } else { return false; }
+
         } else { return false; }
     }
 
