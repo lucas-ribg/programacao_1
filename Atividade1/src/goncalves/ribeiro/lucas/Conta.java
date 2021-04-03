@@ -55,6 +55,21 @@ public class Conta {
     }
     //</editor-fold>
 
+    //<editor-fold desc="setters">
+    //atualiza informações
+    public void setIdConta(String novoIdConta) {
+        this.idConta = novoIdConta;
+    }
+
+    public void setSaldo(double novoSaldo) {
+        this.saldo = novoSaldo;
+    }
+
+    public void setUsuario(Usuario novoUsuario) {
+        this.usuario = novoUsuario;
+    }
+    //</editor-fold>
+
     @Override
     public String toString() {
         return "Conta{" +

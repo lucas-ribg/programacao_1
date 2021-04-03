@@ -12,19 +12,19 @@ public class Transacao {
     }
 
     //Realiza o pagamento de uma conta para a outra
-    public static void pagamento(Conta pagador, Conta recebedor, String QRCode){
+    public void pagamento(Conta pagador, Conta recebedor, String QRCode){
         String[] dados = QRCode.split(";");
         String idConta = dados[0];
         String nome = dados[1];
-        double valor = Integer.parseInt(dados[2]);
-
+        String valor = dados[2];
+        double dValor = Double.parseDouble(valor);
         if (recebedor.getUsuario().getNome() == nome && recebedor.getIdConta() == idConta){
-            pagador.transferir(recebedor, valor);
+            pagador.transferir(recebedor, dValor);
         }
     }
 
     //gera QRCode
-    public void gerarChave(String idConta, String usuario, double valor2) {
+    public void gerarChave(String idConta, String usuario, String valor2) {
         String QRCode = idConta + ";" + usuario + ";" + valor2 + ";" + getRandomNumberInRange(1000, 9999);
         System.out.println(QRCode);
     }

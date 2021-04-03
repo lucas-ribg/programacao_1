@@ -27,7 +27,7 @@ public class Main {
         while(executarSistema){
             exibirMenu();
             exibirInicial();
-            op = scanner.nextInt();
+            op = Integer.parseInt(scanner.nextLine());
             avaliarOpcao(op);
         }
     }
@@ -38,23 +38,27 @@ public class Main {
                 int i = 0;
                 System.out.println("Informe seu nome:");
                 String pagador = scanner.nextLine();
-                while (pagador.equals(conta[i].getUsuario().getNome())){ i++; }  //relaciona o usuario a conta correspondente
+                while (!pagador.equals(conta[i].getUsuario().getNome())){ i++; }  //relaciona o usuario a conta correspondente
                 Conta contaPagador = conta[i];
 
                 int j = 0;
                 System.out.println("Informe o nome recebedor:");
                 String recebedor = scanner.nextLine();
-                while (recebedor.equals(conta[j].getUsuario().getNome())){ j++;} //relaciona o usuario a conta correspondente
+                while (!recebedor.equals(conta[j].getUsuario().getNome())){ j++;} //relaciona o usuario a conta correspondente
                 Conta contaRecebedor = conta[j];
 
                 System.out.println("Informe o QRCode: ");
                 String QRCode = scanner.nextLine();
 
-                /*System.out.println(contaPagador);
-                System.out.println(contaRecebedor);*/
-
                 //realiza o pagamento
                 this.transacao.pagamento(contaPagador, contaRecebedor, QRCode);
+
+                System.out.println("conta lucas");
+                System.out.println(contaPagador);
+                System.out.println(contaPagador.getSaldo());
+                System.out.println("conta marcio");
+                System.out.println(contaRecebedor);
+                System.out.println(contaRecebedor.getSaldo());
                 break;
 
             case 2:
@@ -65,7 +69,7 @@ public class Main {
                 String usuario = scanner.nextLine();
 
                 System.out.println("Informe o valor:");
-                double valor2 = scanner.nextInt();
+                String valor2 = scanner.nextLine();
                 //gera o QRCode
                 this.transacao.gerarChave(idConta, usuario, valor2);
                 break;
