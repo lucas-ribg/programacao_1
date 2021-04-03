@@ -17,11 +17,9 @@ public class Conta {
     public boolean sacar(double valor){
         if(this.saldo >= valor){
             this.saldo -= valor;
-        }else{
-            System.out.println("Erro!");
-            System.out.println("Saldo Insuficiente");
-        }
-        return true;
+            return true;
+        }else{ return false; }
+
     }
 
     //acresce o valor em uma conta e subtrai da outra

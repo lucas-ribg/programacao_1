@@ -11,9 +11,9 @@ public class Main {
     private Transacao transacao;
 
     public static void main(String[] args) {
-        conta[0] = new Conta("0", 1000.00, "Lucas");
-        conta[1] = new Conta("1", 250.00, "Marcio");
-        conta[2] = new Conta("2", 3000.00, "Catarina");
+        conta[0] = new Conta("0", 1000.00, "lucas");
+        conta[1] = new Conta("1", 250.00, "marcio");
+        conta[2] = new Conta("2", 3000.00, "catarina");
         Main main = new Main();
         main.executar();
 
@@ -37,13 +37,13 @@ public class Main {
             case 1:
                 int i = 0;
                 System.out.println("Informe seu nome:");
-                String pagador = scanner.nextLine();
+                String pagador = scanner.nextLine().toLowerCase();
                 while (!pagador.equals(conta[i].getUsuario().getNome())){ i++; }  //relaciona o usuario a conta correspondente
                 Conta contaPagador = conta[i];
 
                 int j = 0;
                 System.out.println("Informe o nome recebedor:");
-                String recebedor = scanner.nextLine();
+                String recebedor = scanner.nextLine().toLowerCase();
                 while (!recebedor.equals(conta[j].getUsuario().getNome())){ j++;} //relaciona o usuario a conta correspondente
                 Conta contaRecebedor = conta[j];
 
@@ -51,14 +51,11 @@ public class Main {
                 String QRCode = scanner.nextLine();
 
                 //realiza o pagamento
-                this.transacao.pagamento(contaPagador, contaRecebedor, QRCode);
-
-                System.out.println("conta lucas");
-                System.out.println(contaPagador);
-                System.out.println(contaPagador.getSaldo());
-                System.out.println("conta marcio");
-                System.out.println(contaRecebedor);
-                System.out.println(contaRecebedor.getSaldo());
+                if (this.transacao.pagamento(contaPagador, contaRecebedor, QRCode)){
+                    System.out.println("Transação realizada com sucesso!");
+                } else {
+                    System.out.println("Não foi possível realizar a transação");
+                }
                 break;
 
             case 2:
@@ -66,7 +63,7 @@ public class Main {
                 String idConta = scanner.nextLine();
 
                 System.out.println("Informe seu usuario:");
-                String usuario = scanner.nextLine();
+                String usuario = scanner.nextLine().toLowerCase();
 
                 System.out.println("Informe o valor:");
                 String valor2 = scanner.nextLine();

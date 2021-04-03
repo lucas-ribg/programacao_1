@@ -12,15 +12,17 @@ public class Transacao {
     }
 
     //Realiza o pagamento de uma conta para a outra
-    public void pagamento(Conta pagador, Conta recebedor, String QRCode){
+    public boolean pagamento(Conta pagador, Conta recebedor, String QRCode){
         String[] dados = QRCode.split(";");
         String idConta = dados[0];
-        String nome = dados[1];
+        String nome = dados[1].toLowerCase();
         String valor = dados[2];
         double dValor = Double.parseDouble(valor);
-        if (recebedor.getUsuario().getNome() == nome && recebedor.getIdConta() == idConta){
+
+        if (recebedor.getUsuario().getNome().equals(nome) && recebedor.getIdConta().equals(idConta)){
             pagador.transferir(recebedor, dValor);
-        }
+            return true;
+        } else { return false; }
     }
 
     //gera QRCode
