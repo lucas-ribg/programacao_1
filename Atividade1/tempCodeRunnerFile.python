@@ -1,0 +1,4 @@
+arrStringDB = ['a', 'b', 'a', 'c', 'a', 'x', 'i']
+arrStringCam= ['a', 'a', 'c', 'a', 'x']
+
+print(arrStringCam)
