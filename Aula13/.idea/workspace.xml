@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8b8e250-0aa3-45a5-bc7a-849f88928c6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/goncalves/ribeiro/lucas/model/Item.java" afterDir="false" />
-    </list>
+    <list default="true" id="b8b8e250-0aa3-45a5-bc7a-849f88928c6f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,5 +115,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
