@@ -1,5 +1,8 @@
 package br.maua.models;
 
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -41,7 +44,11 @@ public class MainSystem {
     public void menuValue(int op){
         switch(op){
             case 1:
-                registerMember();
+                try {
+                    this.registerMember();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
 
             case 2:
@@ -64,8 +71,34 @@ public class MainSystem {
         }
     }
 
-    public void registerMember(){
+    public void registerMember() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        boolean aux = true;
 
+        while(aux){
+            System.out.println("\nDigite o nome:\n");
+            String name = scanner.nextLine();
+            System.out.println("Digite o ID:\n");
+            String ID = scanner.nextLine();
+            System.out.println("Digite a função:\n");
+            String role = scanner.nextLine();
+
+            FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
+
+            fileWriter.write("ROLE  NAME  ID\n");
+            fileWriter.append(role + ";" + name + ";" + ID + "\n");
+
+            System.out.println("Deseja registrar mais um membro? (S/N)\n");
+            String aux2 = scanner.nextLine();
+
+            if (aux2.equals("s")) {
+                aux = true;
+            } else {
+                aux = false;
+            }
+
+            this.member.add();
+        }
     }
 
     public void fireMember(){
