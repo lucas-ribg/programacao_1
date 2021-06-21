@@ -1,5 +1,6 @@
 package br.maua.models;
 
+import br.maua.enums.OfficeHour;
 import br.maua.enums.Roles;
 
 import java.io.FileWriter;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 
 public class MainSystem {
     Scanner scanner;
+    OfficeHour hour = OfficeHour.REGULAR;
     private boolean executeSystem = true;
     ArrayList<Members> member = new ArrayList<>();
 
@@ -58,14 +60,20 @@ public class MainSystem {
                 break;
 
             case 3:
-                //PostMessage();
+                //for member => PostMessage();
                 break;
 
             case 4:
-                //changeHour();
+                if(this.hour == OfficeHour.REGULAR){
+                    hour = OfficeHour.EXTRA;
+                }
+                if(this.hour == OfficeHour.EXTRA){
+                    hour = OfficeHour.REGULAR;
+                }
                 break;
+
             case 5:
-                //report
+                //for member => report
 
             case 6:
                 executeSystem = false;
