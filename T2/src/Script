@@ -1,0 +1,39 @@
+Interface:
+    - PostMessage
+        Method:
+            - public void postRegAtiv()
+            - public void postExtra()
+            - public void hour()
+
+    - Presentation
+        Method:
+            - public void selfPresentation()
+
+Class :
+    -Member (abstract)
+        Attributes:
+            -public String name
+            -public String email
+            -public Role role (Enum)
+
+    -MainSystem
+        Method:
+            - public static void menu()
+            - public static void Register()
+            - public static void HourType()
+            - public static void printMessage()
+            - public static void deleteMember()
+
+Enum:
+    - Roles
+        - MobileMembers (implements PostMessage, selfPresentation)
+        - HeavyLifters (implements PostMessage, selfPresentation)
+        - ScriptGuys (implements PostMessage, selfPresentation)
+        - BigBrothers (implements PostMessage, selfPresentation)
+
+    - OfficeHour
+        - Normal
+        - Extra
+
+Main:
+    Run mainSystem
