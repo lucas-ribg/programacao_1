@@ -8,3 +8,4 @@ public abstract class Members {
     private String email;
     private Roles role;
 }
+
