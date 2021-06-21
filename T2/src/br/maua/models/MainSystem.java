@@ -1,5 +1,7 @@
 package br.maua.models;
 
+import br.maua.enums.Roles;
+
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
@@ -80,7 +82,7 @@ public class MainSystem {
             String name = scanner.nextLine();
             System.out.println("Digite o ID:\n");
             String ID = scanner.nextLine();
-            System.out.println("Digite a função:\n");
+            System.out.println("Escolha a função:\n");
             String role = scanner.nextLine();
 
             FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
