@@ -16,5 +16,16 @@ public abstract class Members {
         this.role = role;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Roles getRole() {
+        return role;
+    }
 }
 
