@@ -40,7 +40,7 @@ public class MainSystem {
         System.out.println("- Press 2 to fire a member");
         System.out.println("- Press 3 to post message");
         System.out.println("- Press 4 to change Office Hour");
-        System.out.println("- Press 5 to report");
+        System.out.println("- Press 5 for report");
         System.out.println("- Press 6 to exit settings");
     }
 
