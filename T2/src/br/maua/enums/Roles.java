@@ -4,12 +4,16 @@ import br.maua.interfaces.PostMessage;
 import br.maua.interfaces.Presentation;
 
 public enum Roles implements PostMessage, Presentation {
-    MOBILE_MEMBERS(0), HEAVY_LIFTERS(1), SCRIPT_GUYS(2), BIG_BROTHERS(3);
+    MOBILE_MEMBERS(0),
+    HEAVY_LIFTERS(1),
+    SCRIPT_GUYS(2),
+    BIG_BROTHERS(3);
+
+    private int value;
 
     Roles(final int value){
         this.value = value;
     }
-    private int value;
 
     @Override
     public void postMessage(int value, OfficeHour hour) {
