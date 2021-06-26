@@ -107,7 +107,7 @@ public class MainSystem {
                 aux = false;
             }
 
-            this.member.add();
+            //this.member.add();
         }
     }
 

@@ -1,8 +1,10 @@
 package br.maua.models;
 
 import br.maua.enums.Roles;
+import br.maua.interfaces.PostMessage;
+import br.maua.interfaces.Presentation;
 
-public abstract class Members {
+public abstract class Members implements PostMessage, Presentation {
 
     private int ID;
     private String name;
