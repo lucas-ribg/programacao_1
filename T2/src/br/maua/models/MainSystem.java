@@ -293,7 +293,42 @@ public class MainSystem {
         }
     }
 
-    
+    /**
+     * Exibe para o usuário a seguinte informação para cada ID presente no"arquivo_super_Secreto_nao_abrir.csv": ID: | email - Nome(Role)
+     */
+    public void exibirCadastrados(){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            String itemCsv = br.readLine();
+
+            while(itemCsv != null){
+
+                String[] itemSeparado = itemCsv.split(";");
+                String ID = itemSeparado[0];
+                String name = itemSeparado[1];
+                String email = itemSeparado[2];
+                String role = itemSeparado[3];
+
+                if (role.equals("MOBILE_MEMBERS")) {
+                    MobileMembers temp = new MobileMembers(Integer.parseInt(ID), name, email, Roles.MOBILE_MEMBERS);
+                    System.out.println(temp.presentation(temp));
+                } else if (role.equals("HEAVY_LIFTERS")) {
+                    HeavyLifters temp = new HeavyLifters(Integer.parseInt(ID), name, email, Roles.HEAVY_LIFTERS);
+                    System.out.println(temp.presentation(temp));
+                } else if (role.equals("SCRIPT_GUYS")) {
+                    ScriptGuys temp = new ScriptGuys(Integer.parseInt(ID), name, email, Roles.SCRIPT_GUYS);
+                    System.out.println(temp.presentation(temp));
+                } else if (role.equals("BIG_BROTHERS")) {
+                    BigBrothers temp = new BigBrothers(Integer.parseInt(ID), name, email, Roles.BIG_BROTHERS);
+                    System.out.println(temp.presentation(temp));
+                }
+                itemCsv = br.readLine();
+            }
+            br.close();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Erro");
+        }
+    }
 }
 
 
