@@ -3,37 +3,45 @@ package br.maua.models;
 import br.maua.enums.OfficeHour;
 import br.maua.enums.Roles;
 
-import java.io.FileWriter;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import javax.swing.*;
+import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Classe que realiza o funciona do sistema
+ */
 public class MainSystem {
-    Scanner scanner;
+    Scanner scanner = new Scanner(System.in);
     OfficeHour hour = OfficeHour.REGULAR;
     private boolean executeSystem = true;
-    ArrayList<Members> member = new ArrayList<>();
+    File path = new File("arquivo_super_Secreto_nao_abrir.csv");
 
     /**
-     * Execute system
+     * Executa o sistema, exibe as boas vindas e o menu de opções
      */
     public void execute(){
         while(executeSystem){
             int op;
             welcome();
             menu();
-            op = Integer.parseInt(scanner.nextLine());
-            menuValue(op);
+            menuValue(scanner.nextInt());
         }
     }
 
+    /**
+     * Método que da boas vindas ao usuário
+     */
     public void welcome(){
         System.out.println("\n=========================");
         System.out.println("Welcome to MAsK_S0c13ty!");
         System.out.println("=========================\n");
     }
 
+    /**
+     * Método que exibe um menu com as opções do sistema
+     */
     public void menu(){
         hourType();
         System.out.println("- Press 1 to add a member");
@@ -44,40 +52,43 @@ public class MainSystem {
         System.out.println("- Press 6 to exit settings");
     }
 
-
+    /**
+     * Seleciona e executa a opção escolhida pelo usuário
+     * @param op número inteiro referente a escolha da operação escolhida no menu (entrada pelo usuário)
+     */
     public void menuValue(int op){
         switch(op){
             case 1:
                 try {
-                    this.registerMember();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    registerMember();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null,"Erro");
                 }
                 break;
 
             case 2:
-                fireMember();
+                exibirCadastrados();
+                fireMember(path.getName());
                 break;
 
             case 3:
-                //for member => PostMessage();
+                postMessage(hour);
                 break;
 
             case 4:
                 if(this.hour == OfficeHour.REGULAR){
                     hour = OfficeHour.EXTRA;
-                }
-                if(this.hour == OfficeHour.EXTRA){
+                } else {
                     hour = OfficeHour.REGULAR;
                 }
                 break;
 
             case 5:
-                //for member => report
-
+                exibirCadastrados();
+                break;
             case 6:
                 executeSystem = false;
-            break;
+                break;
         }
     }
 
