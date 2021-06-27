@@ -92,33 +92,98 @@ public class MainSystem {
         }
     }
 
+    /**
+     * Quando chamado, grava ID;nome;email;role escolhidos pelo usuário no "arquivo_super_Secreto_nao_abrir.csv".
+     * @throws IOException mostra a mensagem "Erro" caso haja algum problema.
+     */
     public void registerMember() throws IOException {
         Scanner scanner = new Scanner(System.in);
         boolean aux = true;
+        FileWriter csvWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
+        File csvTest = path;
 
-        while(aux){
-            System.out.println("\nDigite o nome:\n");
-            String name = scanner.nextLine();
-            System.out.println("Digite o ID:\n");
+        if (csvTest.length() == 0){
+            csvWriter.append("ID");
+            csvWriter.append(";");
+            csvWriter.append("Name");
+            csvWriter.append(";");
+            csvWriter.append("Email");
+            csvWriter.append(";");
+            csvWriter.append("Role");
+            csvWriter.append("\n");
+        }
+
+        while(aux) {
+            boolean aux1 = true;
+            System.out.println("Digite o ID:");
             String ID = scanner.nextLine();
-            System.out.println("Escolha a função:\n");
-            String role = scanner.nextLine();
+            while (aux1) {
+                Scanner y = new Scanner(csvTest);
+                y.useDelimiter("[;\n]");
+                String Teste = "";
+                while (y.hasNext()) {
+                    String idTest = y.next();
+                    y.next();
+                    y.next();
+                    y.next();
+                    if (idTest.equals(ID)) {
+                        System.out.println("ID já existe!\nEscolha outro:");
+                        Teste = "existe";
+                        break;
+                    }
+                }
+                if (Teste.equals("existe")) {
+                    System.out.println("Digite o ID:");
+                    ID = scanner.nextLine();
+                } else aux1 = false;
+                y.close();
+            }
+            System.out.println("Digite o nome:");
+            String name = scanner.nextLine();
+            System.out.println("Digite o email:");
+            String email = scanner.nextLine();
+            String role;
+            while(true) {
+                System.out.println("Escolha a função:\n");
+                System.out.println("0 - Mobile Member");
+                System.out.println("1 - Heavy Lifter");
+                System.out.println("2 - Script Guy");
+                System.out.println("3 - Big Brother");
+                int op = Integer.parseInt(scanner.nextLine());
+                if (op == 0) {
+                    role = "MOBILE_MEMBERS";
+                    break;
+                } if (op == 1) {
+                    role = "HEAVY_LIFTERS";
+                    break;
+                } if (op == 2) {
+                    role = "SCRIPT_GUYS";
+                    break;
+                } if (op == 3) {
+                    role = "BIG_BROTHERS";
+                    break;
+                } else {
+                    System.out.println("Função escolhida não existe!");
+                }
+            }
+            List<List<String>> Dados = Arrays.asList(Arrays.asList(ID, name, email, role));
 
-            FileWriter fileWriter = new FileWriter("arquivo_super_Secreto_nao_abrir.csv", true);
-
-            fileWriter.write("ROLE  NAME  ID\n");
-            fileWriter.append(role + ";" + name + ";" + ID + "\n");
-
-            System.out.println("Deseja registrar mais um membro? (S/N)\n");
-            String aux2 = scanner.nextLine();
-
-            if (aux2.equals("s")) {
-                aux = true;
-            } else {
-                aux = false;
+            for (List<String> novosDados : Dados) {
+                csvWriter.append(String.join(";", novosDados));
+                csvWriter.append("\n");
             }
 
-            //this.member.add();
+            csvWriter.flush();
+
+            System.out.println("Deseja registrar mais um membro? (S/N)");
+            String aux2 =scanner.nextLine();
+
+            if (aux2.equals("s")|aux2.equals("S")) {
+                aux = true;
+            } else {
+                csvWriter.close();
+                aux = false;
+            }
         }
     }
 
