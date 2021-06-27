@@ -29,5 +29,9 @@ public abstract class Members implements PostMessage, Presentation {
     public Roles getRole() {
         return role;
     }
+
+    public String getEmail(){
+        return email;
+    }
 }
 

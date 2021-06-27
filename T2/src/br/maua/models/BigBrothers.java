@@ -11,17 +11,16 @@ public class BigBrothers extends Members {
     }
 
     @Override
-    public void postMessage(OfficeHour hour) {
+    public String postMessage(OfficeHour hour) {
         if(hour == OfficeHour.REGULAR){
-            System.out.println("Sempre ajudando as pessoas membros ou não S2!");
-        }
-        if(hour == OfficeHour.EXTRA){
-            System.out.println("...");
+            return("Sempre ajudando as pessoas membros ou não S2!");
+        } else {
+            return("...");
         }
     }
 
     @Override
-    public void presentation() {
-        System.out.println("ID: " + this.getID() + "Nome: " + this.getName() + "Função: " + this.getRole());
+    public String presentation(Members member) {
+        return("ID:" + member.getID() + " | " + member.getEmail() + " - " + member.getName()+ "(" + member.getRole() + ")");
     }
 }
