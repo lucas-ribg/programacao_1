@@ -1,5 +1,5 @@
 package br.maua.interfaces;
 
 public interface Presentation {
-    void presentation();
+    String presentation(Members members);
 }
