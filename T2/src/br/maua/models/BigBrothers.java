@@ -4,7 +4,7 @@ import br.maua.enums.OfficeHour;
 import br.maua.enums.Roles;
 
 /**
- * Classe que representa o cargo dos BigBrothers e extend a classe membros
+ * Classe que representa o cargo dos BigBrothers e extende a classe membros
  */
 public class BigBrothers extends Members {
 
