@@ -149,7 +149,7 @@ public class MainSystem {
 
             while(true) {
 
-                System.out.println("Escolha a função:\n");
+                System.out.println("Escolha a função:");
                 System.out.println("0 - Mobile Member");
                 System.out.println("1 - Heavy Lifter");
                 System.out.println("2 - Script Guy");
